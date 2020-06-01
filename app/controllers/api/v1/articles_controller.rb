@@ -3,7 +3,7 @@ module Api
 		class ArticlesController < ApplicationController
 			def index
 				articles = Article.all
-				render json: {status: 'SUCCESS', message: 'Articles are loaded', data:articles}, status: :ok 
+				render json: {status: "success", message: "All articles are loaded", data:articles}, status: :ok 
 			end
 
 			def show
@@ -16,7 +16,7 @@ module Api
 				if article.save
 					render json: {status: 'SUCCESS', message: 'Article created', data:article}, status: :ok
 				else
-					render json: {status: 'ERROR', message: 'Article not saved', data:article.errors}, status: :unprocessble_entity
+					render json: {status: 'ERROR', message: 'Article not saved', data:article.errors}, status: :unprocessable_entity
 				end
 
 			end
@@ -26,7 +26,7 @@ module Api
 				if article.update(articles_params)
 					render json: {status: 'SUCCESS', message: 'Article Updated', data:article}, status: :ok
 				else
-					render json: {status: 'ERROR', message: 'Article not updated', data:article.errors}, status: :unprocessble_entity
+					render json: {status: 'ERROR', message: 'Article not updated', data:article.errors}, status: :unprocessable_entity
 				end
 			end
 
