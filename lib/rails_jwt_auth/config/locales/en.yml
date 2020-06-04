@@ -1,0 +1,15 @@
+en:
+  rails_jwt_auth:
+    mailer:
+      confirmation_instructions:
+        subject: "Confirmation instructions"
+      reset_password_instructions:
+        subject: "Reset password instructions"
+      set_password_instructions:
+        subject: "Set password instructions"
+      send_invitation:
+        subject: "Someone has sent you an invitation!"
+      email_changed:
+        subject: "Email changed"
+      send_unlock_instructions:
+        subject: "Unlock instructions"

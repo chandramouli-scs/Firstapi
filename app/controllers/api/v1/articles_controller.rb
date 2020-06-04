@@ -1,5 +1,4 @@
 class Api::V1::ArticlesController < ApplicationController
-	before_action :authenticate_with_token!
 	def index
 		articles = Article.all
 		render json: {status: "success", message: "All articles are loaded", data:articles}, status: :ok 
