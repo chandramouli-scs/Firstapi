@@ -30,7 +30,7 @@ RailsJwtAuth.setup do |config|
   # config.invitation_expiration_time = 2.days
 
   # url used to create email link with confirmation token
-  #config.confirmations_url = 'http://frontend.com/confirmation'
+  config.confirmations_url = 'http://localhost:3000/confirmation'
 
   # url used to create email link with reset password token
   #config.reset_passwords_url = 'http://frontend.com/reset_password'
@@ -46,7 +46,7 @@ RailsJwtAuth.setup do |config|
   #config.deliver_later = false
 
   # maximum login attempts before locking an account
-  config.maximum_attempts = 30
+  config.maximum_attempts = 300
 
   # strategy to lock an account: :none or :failed_attempts
   #config.lock_strategy = :failed_attempts
