@@ -16,7 +16,7 @@ module RailsJwtAuth
 
       return render_422(email_field => [{error: :not_found}]) unless user
 
-      user.send_reset_password_instructions ? render_204 : render_422(user.errors.details)
+      user.send_reset_password_instructions ? render_password_create : render_422(user.errors.details)
     end
 
     def update
@@ -26,7 +26,7 @@ module RailsJwtAuth
 
       return render_422(password: [{error: :blank}]) if password_update_params[:password].blank?
 
-      user.update(password_update_params) ? render_204 : render_422(user.errors.details)
+      user.update(password_update_params) ? render_password_update : render_422(user.errors.details)
     end
   end
 end

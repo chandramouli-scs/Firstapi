@@ -27,7 +27,7 @@ RailsJwtAuth.setup do |config|
   #config.reset_password_expiration_time = 1.day
 
   # time an invitation is valid after sent
-  # config.invitation_expiration_time = 2.days
+  config.invitation_expiration_time = 2.days
 
   # url used to create email link with confirmation token
   config.confirmations_url = 'http://localhost:3000/confirmation'
@@ -40,7 +40,7 @@ RailsJwtAuth.setup do |config|
   #config.set_passwords_url = 'http://frontend.com/set_password'
 
   # url used to create email link with activation token parameter to accept invitation
-  #config.invitations_url = 'http://frontend.com/accept_invitation'
+  config.invitations_url = 'http://localhost:3000/accept_invitation'
 
   # uses deliver_later to send emails instead of deliver method
   #config.deliver_later = false

@@ -11,7 +11,7 @@ module RailsJwtAuth
       elsif user.respond_to?('confirmed?') && !user.confirmed?
         render_422 session: [{error: :unconfirmed}]
       elsif user.authentication?(session_create_params[:password])
-        render_session generate_jwt(user), user
+        render_session_create generate_jwt(user), user
       else
         render_422 session: [user.unauthenticated_error]
       end
@@ -23,7 +23,7 @@ module RailsJwtAuth
       authenticate!
       payload = JwtManager.decode_from_request(request)&.first
       current_user.destroy_auth_token payload['auth_token']
-      render_204
+      render json: {message: "Logout successfully"}, status: :ok
     end
 
     private

@@ -6,7 +6,7 @@ module RailsJwtAuth
     def create
       authenticate!
       user = RailsJwtAuth.model.invite!(invitation_create_params)
-      user.errors.empty? ? render_204 : render_422(user.errors.details)
+      user.errors.empty? ? render_invi : render_422(user.errors.details)
     end
 
     def update
@@ -16,7 +16,7 @@ module RailsJwtAuth
 
       user.assign_attributes invitation_update_params
       user.accept_invitation!
-      return render_204 if user.errors.empty? && user.save
+      return render json:{message: "succesfully created account"}, status: :ok if user.errors.empty? && user.save
 
       render_422(user.errors.details)
     end

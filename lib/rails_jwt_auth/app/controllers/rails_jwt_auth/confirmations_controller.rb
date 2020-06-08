@@ -10,7 +10,7 @@ module RailsJwtAuth
 
       return render_422(email: [{error: :not_found}]) unless user
 
-      user.send_confirmation_instructions ? render_204 : render_422(user.errors.details)
+      user.send_confirmation_instructions ? render_confirm_create(user) : render_422(user.errors.details)
     end
 
     def update
@@ -18,7 +18,7 @@ module RailsJwtAuth
         params[:id] &&
         (user = RailsJwtAuth.model.where(confirmation_token: params[:id]).first)
 
-      user.confirm! ? render_204 : render_422(user.errors.details)
+      user.confirm! ? render_confirm_update : render_422(user.errors.details)
     end
   end
 end
