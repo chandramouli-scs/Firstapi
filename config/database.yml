@@ -17,3 +17,7 @@ development:
   <<: *default
   database: firstapi_development
 
+test:
+  <<: *default
+  database: firstapi_test
+
