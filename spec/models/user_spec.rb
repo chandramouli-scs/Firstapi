@@ -5,7 +5,9 @@ RSpec.describe User, type: :model do
 		it "should not nil of email when user created " do 
 			@user = User.create(email: "testing@gmail.com", password: "password", password_confirmation: "password")
 			expect(@user).to be_valid
+			expect(User.all.count).to eq(1)
 		end
+		
 	end
 
 end
