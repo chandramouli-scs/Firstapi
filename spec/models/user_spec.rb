@@ -7,7 +7,6 @@ RSpec.describe User, type: :model do
 			expect(@user).to be_valid
 			expect(User.all.count).to eq(1)
 		end
-		
 	end
 
 end
